@@ -1,0 +1,15 @@
+.mynavbar
+{
+	float:right !important;
+
+}
+body {
+	background-image: url(../images/cover.jpeg);
+	background-size: cover;
+	background-position: no-repeat;
+}
+
+.box {
+	
+	margin:100px;
+}

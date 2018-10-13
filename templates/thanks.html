@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<style>
+ .image {
+ 	margin-top: 25px;
+ }	
+</style>
+	<div class="container-fluid image">
+		<img class="img-fluid" src="{% static 'images/thankyou.jpg' %}"/>
+	</div>
+{% endblock %}

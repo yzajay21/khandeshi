@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+	{% load staticfiles %}
+	{% load crispy_forms_tags %}
+	
+
+	 
+{% block content %}	
+<style>,
+.form {
+	padding-left: 20px;
+	margin-left: 50px;
+}
+
+.form-body {
+	margin-top: 10px;
+	background-color: lightgreen;
+	min-height: 200px;
+}
+.register {
+  padding-top: 10px;
+	font-family: Agency FB;
+	border-bottom-style: ridge;
+}
+
+</style>
+	
+
+	<div class="container form-body">
+		<div class="row">
+			
+			<div class= 'offset-md-4 col-md-4 offset-md-4 id="bg'>
+				<h1 class="text-center register"><b>Register Form</b></h1>
+				<hr/>
+				<div class="form">
+					<form method='POST'>
+						{% csrf_token %}
+						<!--<label>First Name/पहिले नाव </label>
+						<input type="text" name="name" class="form-control">-->
+						<div id="div_id_first_name" class="form-group"> 
+							<label for="id_first_name" class="col-form-label  requiredField">
+               				 	First name/पहिले नाव <span class="asteriskField">*</span> 
+               				</label> 
+               				<div class=""> 
+               					<input type="text" name="first_name" maxlength="64" class="textinput textInput form-control" required="" id="id_first_name"> 
+               				</div> 
+               			</div>
+               			<div id="div_id_middle_name" class="form-group"> 
+               				<label for="id_middle_name" class="col-form-label  requiredField">
+                				Middle name/मधले  नाव <span class="asteriskField">*</span> 
+                			</label> 
+                			<div class=""> 
+                				<input type="text" name="middle_name" maxlength="64" class="textinput textInput form-control" required="" id="id_middle_name"> 
+                			</div> 
+                		</div>
+                		<div id="div_id_last_name" class="form-group"> 
+                			<label for="id_last_name" class="col-form-label  requiredField">
+                				Last name/आडनावं <span class="asteriskField">*</span> 
+                			</label> 
+                			<div class=""> 
+                				<input type="text" name="last_name" maxlength="64" class="textinput textInput form-control" required="" id="id_last_name">
+                			</div>
+                		</div>
+                		<div id="div_id_mobile_no" class="form-group">
+                		 	<label for="id_mobile_no" class="col-form-label  requiredField">
+                				Mobile no/मोबाईल  नंबर   <span class="asteriskField">*</span>
+                		 	</label>
+                		 	 <div class="">
+                		 	 	 <input type="text" name="mobile_no" maxlength="64" class="textinput textInput form-control" required="" id="id_mobile_no"> 
+                		 	</div> 
+                		</div>
+               			<div id="div_id_description" class="form-group">
+               				<label for="id_description" class="col-form-label  requiredField">
+                				Description/स्वतःबद्दल माहिती  <span class="asteriskField">*</span> 
+                			</label>
+                			<div class=""> 
+                				<textarea name="description" cols="40" rows="10" maxlength="200" class="textarea form-control" required="" id="id_description"></textarea> 
+                			</div> 
+                		</div>
+                		<div id="div_id_date_of_birth" class="form-group">
+                			<label for="id_date_of_birth" class="col-form-label ">
+                				Date of birth/जन्मतिथी
+            				</label> 
+            				<div class=""> 
+            					<input type="date" name="date_of_birth" class="form-control dateinput form-control" placeholder="Select a date" id="id_date_of_birth">
+            				</div>
+            			 </div>
+            			<div id="div_id_pan" class="form-group"> 
+            				<label for="id_pan" class="col-form-label ">
+               						 Pan
+            				</label> 
+            				<div class=""> 
+            					<input type="text" name="pan" maxlength="200" class="textinput textInput form-control" id="id_pan"> 
+            				</div> 
+            			</div>
+               			<div id="div_id_aadhar" class="form-group"> 
+               				<label for="id_aadhar" class="col-form-label ">
+                				Aadhar
+            				</label> 
+            				<div class=""> 
+            					<input type="text" name="aadhar" maxlength="200" class="textinput textInput form-control" id="id_aadhar"> 
+            				</div> 
+            			</div>
+                		<div id="div_id_state" class="form-group">
+                		 	<label for="id_state" class="col-form-label  requiredField">
+              				 		 State/राज्य <span class="asteriskField">*</span> 
+              				</label>
+              				<div class=""> 
+              					<input type="text" name="state" maxlength="200" class="textinput textInput form-control" required="" id="id_state"> 
+              				</div> 
+              			</div>
+               			<div id="div_id_city" class="form-group"> 
+               				<label for="id_city" class="col-form-label  requiredField">
+		               			 City/शहर <span class="asteriskField">*</span> 
+
+		               		</label> 
+		               		<div class="">
+		               			 <input type="text" name="city" maxlength="200" class="textinput textInput form-control" required="" id="id_city"> 
+		               		</div> 
+		               	</div>
+		                <div id="div_id_address" class="form-group"> 
+		                	<label for="id_address" class="col-form-label  requiredField">
+		                		Address/सध्याचा घरचा पत्ता <span class="asteriskField">*</span> 
+		                	</label> 
+		                	<div class=""> 
+		                		<input type="text" name="address" maxlength="500" class="textinput textInput form-control" required="" id="id_address"> 
+		                	</div> 
+		                </div>
+		                <div id="div_id_permanent_address" class="form-group"> 
+		                	<label for="id_permanent_address" class="col-form-label  requiredField">
+		                		Permanent address/कायम चा घर चा पत्ता  <span class="asteriskField">*</span> 
+		                	</label> 
+		                	<div class=""> 
+		                		<input type="text" name="permanent_address" maxlength="500" class="textinput textInput form-control" required="" id="id_permanent_address"> 
+		                	</div> 
+		                </div>
+		                <div id="div_id_name_of_relative" class="form-group"> 
+		                	<label for="id_name_of_relative" class="col-form-label  requiredField">
+		               			 Name of relative/नातेवाईकाचे नाव <span class="asteriskField">*</span> 
+		            		</label> 
+		            		<div class=""> 
+		            			<input type="text" name="name_of_relative" maxlength="200" class="textinput textInput form-control" required="" id="id_name_of_relative"> 
+		            		</div> 
+		            	</div>
+		                <div id="div_id_mobile_no_of_relative" class="form-group"> 
+		                	<label for="id_mobile_no_of_relative" class="col-form-label  requiredField">
+		               			 Mobile no of relative/नातेवाईकाचा मोबाइलला क्रमांक <span class="asteriskField">*</span> 
+		            		</label> 
+		            		<div class=""> 
+		            			<input type="text" name="mobile_no_of_relative" maxlength="200" class="textinput textInput form-control" required="" id="id_mobile_no_of_relative"> 
+		            		</div> 
+		            	</div>
+		            	<div id="div_id_emergency_contact" class="form-group"> 
+		            		<label for="id_emergency_contact" class="col-form-label  requiredField">
+                				Emergency contact/आपातकालीन क्रमांक <span class="asteriskField">*</span> 
+                			</label> 
+                			<div class=""> 
+                				<input type="text" name="emergency_contact" maxlength="13" class="textinput textInput form-control" required="" id="id_emergency_contact"> 
+                			</div> 
+                		</div>
+		                <div id="div_id_blood_group" class="form-group">
+		                	<label for="id_blood_group" class="col-form-label  requiredField">
+		                		Blood group/तुमचे रक्तगट<span class="asteriskField">*</span> 
+		                	</label>
+		                	<div class=""> 
+		                	 	<input type="text" name="blood_group" maxlength="20" class="textinput textInput form-control" required="" id="id_blood_group"> 
+		                	</div> 
+		           	 	</div>
+						<div id="div_id_Profession" class="form-group"> 
+							<label for="id_Profession" class="col-form-label  requiredField">
+                				Profession/तुमचा व्यवसाय <span class="asteriskField">*</span> 
+            				</label> 
+            				<div class=""> 
+            					<select name="Profession" class="select form-control" required="" id="id_Profession">
+            						<option value="" selected="">---------</option> 
+            						<option value="Job">job</option> 
+            						<option value="Buisness">buisness</option>
+            					</select> 
+            				</div> 
+            			</div>
+						<input type="submit" class="btn btn-success" value='Submit'/>
+					</form>	
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+
+
